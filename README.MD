@@ -18,7 +18,7 @@
       
 ---
 ### 1. Introduction
-This is a TestNG-based test automation framework designed for testing an e-commerce website. 
+This is a TestNG and Java-based test automation framework designed for testing an e-commerce website. 
 It leverages Selenium WebDriver for browser automation and Extent Reports for generating detailed test execution reports.
 
 ---
