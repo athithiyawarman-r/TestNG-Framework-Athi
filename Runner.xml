@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" verbose="2" parallel="methods" thread-count="1">		
+  <test name="Swag Labs - Athi">
+	  
+ <parameter name="UserName" value="standard_user"> </parameter> 
+ <parameter name="Password" value="secret_sauce"> </parameter> 
+ <parameter name="FirstName" value="Athithiyawarman"> </parameter> 
+ <parameter name="LastName" value="Rajeswaran"> </parameter> 
+ <parameter name="Zipcode" value="600064"> </parameter> 
+	
+	
+    <classes>
+      <class name="runnerClass.RunnerClass"></class>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

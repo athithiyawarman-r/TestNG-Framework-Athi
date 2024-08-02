@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: com.build.testNG.automate.testNGAutomate.TestNG
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 3, Time elapsed: 0.402 s <<< FAILURE! - in com.build.testNG.automate.testNGAutomate.TestNG
+browserProperties(com.build.testNG.automate.testNGAutomate.TestNG)  Time elapsed: 0.279 s  <<< FAILURE!
+java.lang.Error: 
+Unresolved compilation problem: 
+	WebDriverManager cannot be resolved
+
+	at com.build.testNG.automate.testNGAutomate.TestNG.browserProperties(TestNG.java:11)
+
