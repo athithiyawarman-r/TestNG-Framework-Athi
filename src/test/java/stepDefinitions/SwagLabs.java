@@ -8,6 +8,7 @@ import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -74,9 +75,49 @@ public class SwagLabs {
 		
 	}
 	
-	public static void WaitUntilElementIsVisible(WebDriver driver,Duration timeoutSeconds,String Element) {
+	public static boolean WaitUntilElementIsVisible(WebDriver driver,Duration timeoutSeconds,WebElement Element, String ElementType) {
+		String ElementToString="";
 		WebDriverWait wait=new WebDriverWait(driver,timeoutSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath(Element))));
+		boolean returnValue = false;
+		String marker="";
+		int startIndex=0;
+		int endIndex=0;
+		
+		
+		switch(ElementType){
+			case "xpath":
+				ElementToString=Element.toString();
+				marker = "xpath: ";
+				startIndex = ElementToString.indexOf(marker) + marker.length();
+				endIndex = ElementToString.indexOf(']', startIndex);
+				ElementToString = ElementToString.substring(startIndex, endIndex).trim();
+				wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath(ElementToString))));
+				returnValue=true;
+				break;
+			case "id":
+				ElementToString=Element.toString();
+				marker = "id: ";
+				startIndex = ElementToString.indexOf(marker) + marker.length();
+				endIndex = ElementToString.indexOf(']', startIndex);
+				ElementToString = ElementToString.substring(startIndex, endIndex).trim();
+				wait.until(ExpectedConditions.visibilityOfElementLocated((By.id(ElementToString))));
+				returnValue=true;
+				break;
+			case "className":
+				ElementToString=Element.toString();
+				marker = "class name: ";
+				startIndex = ElementToString.indexOf(marker) + marker.length();
+				endIndex = ElementToString.indexOf(']', startIndex);
+				ElementToString = ElementToString.substring(startIndex, endIndex).trim();
+				System.out.println(ElementToString);
+				wait.until(ExpectedConditions.visibilityOfElementLocated((By.className(ElementToString))));
+				returnValue=true;
+				break;
+			default:
+				System.out.println("Proper ElementType should be selected");
+				break;
+		}
+		return returnValue;
 	}
 	
 	public static void WaitUntilLoadState(WebDriver driver,Duration timeoutSeconds) {
@@ -91,8 +132,6 @@ public class SwagLabs {
 		
 		System.out.println("Total Time Taken: "+(totalTime/1000)+" Seconds");
 		return totalTime;
-		
 	}
-	
 	
 }

@@ -94,7 +94,11 @@ public class RunnerClass {
 	@FindBy(className ="summary_subtotal_label")
 	private WebElement CartTotalValue;
 	
+	@FindBy(className ="bm-burger-button")
+	private WebElement HamburgerMenu; 
 	
+	@FindBy(id ="logout_sidebar_link")
+	private WebElement LogOutLink;
 	
 	@BeforeSuite
 	public void browserProperties() throws FileNotFoundException, IOException {
@@ -126,6 +130,7 @@ public class RunnerClass {
 	    public void LaunchUrl() throws InterruptedException
 	    {
 		driver.get(SLabs.URLs);
+		
 	    }
 		
 		@Test (priority=2)
@@ -154,7 +159,9 @@ public class RunnerClass {
 	    public void removingAllItemsFromCart()
 	    {
 			int sizeOfCart = removeButton.size();
-			System.out.println(sizeOfCart);
+			System.out.println("Size of the Cart: "+sizeOfCart);
+			String a=HamburgerMenu.toString();
+			System.out.print(a);
 			for(int i=sizeOfCart-1; i>=0;i--) {
 				removeButton.get(i).click();
 			}
@@ -200,7 +207,18 @@ public class RunnerClass {
 			
 	    }
 
-	
+		
+		@Test (priority=6) 
+	    public void LogOut() throws InterruptedException
+	    {	SLabs.WaitUntilElementIsVisible(driver,timeoutSeconds,HamburgerMenu,"className");
+			HamburgerMenu.click();
+			SLabs.WaitUntilElementIsVisible(driver,timeoutSeconds,LogOutLink,"id");
+			LogOutLink.click();
+			Boolean check = SLabs.WaitUntilElementIsVisible(driver,timeoutSeconds,loginButton, "id");
+			Assert.assertTrue(check);	
+	    }
+		
+		
 	@AfterSuite
 	public void close() throws IOException
     {
