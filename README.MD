@@ -10,7 +10,7 @@
 
 4. [Project structure](#4-repository-structure)
 
-5.  [Installation](#5-prerequisites-&-installation)
+5.  [Installation](#5-prerequisites--installation)
 
 6.  [Configuration](#6-configuration)
 
