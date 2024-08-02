@@ -52,18 +52,31 @@ It leverages Selenium WebDriver for browser automation and Extent Reports for ge
 ---   
 ### 4. Repository Structure
 TestNG-Framework-Athi
+
 ├── src
+
 │ ├── main
+
 │ ├── test
+
 │ │   └──java
+
 │ │       ├── RunnerClass #Main class which has the test steps
+
 │ │       ├── stepDefinition #Reusable methods are represented
+
 │ │       └── extentReport #ExtentReportManager
+
 │ ├── config #Framework configuration property file
+
 │ └── TestReport #Test Execution Report
+
 ├── pom.xml #Maven configuration file
+
 ├── Runner.xml #TestNG configuration file
+
 └── README.md #Project documentation
+
 
 ---
 ### 5. Prerequisites & Installation
